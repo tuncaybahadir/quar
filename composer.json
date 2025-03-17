@@ -1,0 +1,53 @@
+{
+  "name": "tuncaybahadir/quar",
+  "description": "A simple qr code generation tool for your projects with Laravel 11, 12 versions, php 8.3 and 8.4",
+  "license": "MIT",
+  "version": "0.0.1",
+  "keywords": [
+    "quar",
+    "qr",
+    "qrcode",
+    "laravel",
+    "generator"
+  ],
+  "authors": [
+    {
+      "name": "Tuncay Bahadır",
+      "email": "tuncaybahadir@protonmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.3",
+    "bacon/bacon-qr-code": "^3.0",
+    "ext-gd": "*"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.21",
+    "roave/security-advisories": "dev-latest"
+  },
+  "suggest": {
+    "ext-imagick": "Allows the generation of PNG QrCodes.",
+    "illuminate/support": "Allows for use within Laravel."
+  },
+  "autoload": {
+    "psr-4": {
+      "tbQuar\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "tbQuar\\QuarServiceProvider"
+      ],
+      "aliases": {
+        "Quar": "tbQuar\\Facades\\Quar"
+      }
+    }
+  },
+  "scripts": {
+    "project-optimize": [
+      "composer validate",
+      "./vendor/bin/pint"
+    ]
+  }
+}

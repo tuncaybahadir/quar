@@ -1,0 +1,25 @@
+{
+  "preset": "laravel",
+  "rules": {
+    "no_superfluous_phpdoc_tags": false,
+    "phpdoc_align": {
+      "align": "left"
+    },
+    "fully_qualified_strict_types": true,
+    "global_namespace_import": true,
+    "align_multiline_comment": true,
+    "multiline_comment_opening_closing": true,
+    "single_line_empty_body": true,
+    "single_line_comment_spacing": true,
+    "ternary_to_null_coalescing": true,
+    "return_assignment": true,
+    "nullable_type_declaration": false,
+    "nullable_type_declaration_for_default_null_value": false,
+    "phpdoc_add_missing_param_annotation": {
+      "only_untyped": false
+    }
+  },
+  "exclude": [
+    "public"
+  ]
+}
