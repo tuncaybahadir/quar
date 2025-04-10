@@ -1,7 +1,7 @@
 {
   "name": "tuncaybahadir/quar",
   "description": "A simple qr code generation tool for your projects with Laravel 11, 12 versions, php 8.3 and 8.4",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "keywords": [
     "quar",
     "qr",
@@ -28,7 +28,7 @@
     "ext-gd": "*"
   },
   "require-dev": {
-    "laravel/pint": "^1.21",
+    "laravel/pint": "^1.22",
     "roave/security-advisories": "dev-latest"
   },
   "suggest": {
