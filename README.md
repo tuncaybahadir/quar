@@ -1,10 +1,15 @@
 # Qr Code Generator For Laravel
 
 <p align="center">
-    <a href="https://packagist.org/packages/tuncaybahadir/quar"><img alt="Latest Stable Version" src="https://img.shields.io/packagist/v/tuncaybahadir/quar.svg?style=flat-square"></a>
-    <a href="LICENSE.md"><img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square"></a>
-    <a href="https://packagist.org/packages/tuncaybahadir/quar"><img alt="Downloads" src="https://img.shields.io/packagist/dt/tuncaybahadir/quar.svg?style=flat-square"></a>
-    <a href="https://travis-ci.org/tuncaybahadir/quar"><img alt="PHP" src="https://img.shields.io/badge/PHP-8.3%20--%208.4-brightgreen.svg?style=flat-square"></a>
+    <a href="https://packagist.org/packages/tuncaybahadir/quar">
+        <img alt="Latest Stable Version" src="https://img.shields.io/packagist/v/tuncaybahadir/quar.svg?logo=packagist&logoColor=f5f5f5">
+    </a>&nbsp;
+    <img alt="php" src="https://img.shields.io/badge/php-8.3%20--%208.4-brightgreen.svg?logo=php">&nbsp;
+    <img alt="Laravel" src="https://img.shields.io/badge/Laravel-11%20--%2012-blue.svg?logo=laravel">&nbsp;
+    <a href="https://packagist.org/packages/tuncaybahadir/quar">
+        <img alt="Downloads" src="https://img.shields.io/packagist/dt/tuncaybahadir/quar.svg?logo=down">
+    </a>&nbsp;
+    <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg">
 </p>
 
 ## Introduction
