@@ -74,7 +74,7 @@ class Generate
      *
      * @var string
      */
-    protected string $encoding = Encoder::DEFAULT_BYTE_MODE_ECODING;
+    protected string $encoding = 'UTF-8';
 
     /**
      * The style of the blocks within the QrCode.
@@ -304,18 +304,23 @@ class Generate
     }
 
     /**
-     * @param $startRed
-     * @param $startGreen
-     * @param $startBlue
-     * @param $endRed
-     * @param $endGreen
-     * @param $endBlue
+     * @param int $startRed
+     * @param int $startGreen
+     * @param int $startBlue
+     * @param int $endRed
+     * @param int $endGreen
+     * @param int $endBlue
      * @param string $type
      * @return $this
      */
-    public function gradient($startRed, $startGreen, $startBlue, $endRed, $endGreen, $endBlue, string $type): self
+    public function gradient(int $startRed, int $startGreen, int $startBlue, int $endRed, int $endGreen, int $endBlue, string $type): self
     {
         $type = strtoupper($type);
+
+        if (! in_array($type, ['VERTICAL', 'HORIZONTAL', 'DIAGONAL', 'INVERSE_DIAGONAL', 'RADIAL'])) {
+            throw new InvalidArgumentException("\$type must be vertical, horizontal, diagonal, inverse diagonal, radial. {$type} is not a valid gradient style.");
+        }
+
         $this->gradient = new Gradient(
             $this->createColor($startRed, $startGreen, $startBlue),
             $this->createColor($endRed, $endGreen, $endBlue),

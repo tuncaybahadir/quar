@@ -8,6 +8,8 @@ class QuarServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
+     *
+     * @return void
      */
     public function register(): void
     {
@@ -21,7 +23,7 @@ class QuarServiceProvider extends ServiceProvider
      *
      * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return [Generate::class];
     }

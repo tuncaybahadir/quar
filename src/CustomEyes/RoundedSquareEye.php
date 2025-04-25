@@ -10,15 +10,22 @@ use BaconQrCode\Renderer\Path\Path;
  */
 final class RoundedSquareEye implements EyeInterface
 {
+    /**
+     * @var RoundedSquareEye|null
+     */
     private static ?RoundedSquareEye $instance = null;
 
-    private function __construct() {}
-
+    /**
+     * @return self
+     */
     public static function instance(): self
     {
         return self::$instance ?: self::$instance = new self;
     }
 
+    /**
+     * @return Path
+     */
     public function getExternalPath(): Path
     {
         $outerSize = 3.5;
@@ -59,6 +66,9 @@ final class RoundedSquareEye implements EyeInterface
             ->close();
     }
 
+    /**
+     * @return Path
+     */
     public function getInternalPath(): Path
     {
         $size = 1.5;
