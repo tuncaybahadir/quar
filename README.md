@@ -76,6 +76,27 @@ $qr = Quar::eye('rounded')
 ## Qr Code Rounded Markers Response
 ![Example 3](docs/images/example-3.png)
 
+## Example of Setting Qr Code Gradient Coloring
+
+## Available Gradient type
+
+- `vertical`
+- `horizontal`
+- `diagonal`
+- `inverse_diagonal`
+- `radial`
+
+```php
+use tbQuar\Facades\Quar;
+    
+$qr = Quar::eye('rounded')
+            ->size(161)
+            ->gradient(20, 192, 241 , 164, 29, 52 , 'vertical')
+            ->generate('Quar package create qr code');
+```
+## Qr Code Gradient Coloring Response
+![Example 9](docs/images/example-9.png)
+
 ## Qr Code Coloring Markers Example
 
 ```php
