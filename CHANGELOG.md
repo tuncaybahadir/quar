@@ -2,6 +2,14 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.2.2 - 2025-04-28
+
+### What's Changed
+
+* The createImage, setProperties, calculateCenter, calculateOverlap methods in the ImageMerge class have been made private.
+* Fixed the transparent image background issue in the ImageMerge class merge method and made performance improvements specific to php 8.3 and 8.4.
+
+
 ## 1.2.1 - 2025-04-27
 
 ### What's Changed
