@@ -107,11 +107,11 @@ class ImageMerge
         $this->setProperties($percentage);
 
         $img = imagecreatetruecolor($this->sourceImage->getWidth(), $this->sourceImage->getHeight());
-        imagealphablending($img, true);
-        $transparent = imagecolorallocatealpha($img, 0, 0, 0, 127);
-        imagefill($img, 0, 0, $transparent);
+        imageantialias($img, true);
         imagealphablending($img, false);
         imagesavealpha($img, true);
+        $transparent = imagecolorallocatealpha($img, 0, 0, 0, 127);
+        imagefilledrectangle($img, 0, 0, $this->sourceImage->getWidth() - 1, $this->sourceImage->getHeight() - 1, $transparent);
 
         imagecopy(
             $img,
@@ -123,6 +123,9 @@ class ImageMerge
             $this->sourceImage->getWidth(),
             $this->sourceImage->getHeight()
         );
+
+        imagealphablending($img, true);
+        imagesetinterpolation($img, IMG_BICUBIC_FIXED);
 
         imagecopyresampled(
             $img,
@@ -137,6 +140,8 @@ class ImageMerge
             $this->mergeImageHeight
         );
 
+        imagesavealpha($img, true);
+
         $this->sourceImage->setImageResource($img);
 
         return $this->createImage();
@@ -147,7 +152,7 @@ class ImageMerge
      *
      * @return string
      */
-    protected function createImage(): string
+    private function createImage(): string
     {
         ob_start();
         imagepng($this->sourceImage->getImageResource());
@@ -161,7 +166,7 @@ class ImageMerge
      * @param $percentage float The percentage that the merge image should take up.
      * @return void
      */
-    protected function setProperties(float $percentage): void
+    private function setProperties(float $percentage): void
     {
         if ($percentage > 1) {
             throw new InvalidArgumentException('$percentage must be less than 1');
@@ -182,7 +187,7 @@ class ImageMerge
      *
      * @return void
      */
-    protected function calculateCenter(): void
+    private function calculateCenter(): void
     {
         $this->centerX = intval(($this->sourceImageWidth / 2) - ($this->postMergeImageWidth / 2));
         $this->centerY = intval(($this->sourceImageHeight / 2) - ($this->postMergeImageHeight / 2));
@@ -194,7 +199,7 @@ class ImageMerge
      * @param float $percentage
      * @return void
      */
-    protected function calculateOverlap(float $percentage): void
+    private function calculateOverlap(float $percentage): void
     {
         $this->mergeRatio = round($this->mergeImageWidth / $this->mergeImageHeight, 2);
         $this->postMergeImageWidth = intval($this->sourceImageWidth * $percentage);
