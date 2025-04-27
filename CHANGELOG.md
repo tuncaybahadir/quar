@@ -2,6 +2,12 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.2.1 - 2025-04-27
+
+### What's Changed
+
+* Fixed an error when triggering the merge method.
+
 ## 1.2.0 - 2025-04-26
 
 ### What's Changed
