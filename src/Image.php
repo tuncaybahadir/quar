@@ -2,6 +2,8 @@
 
 namespace tbQuar;
 
+use GdImage;
+
 class Image
 {
     /**
@@ -44,9 +46,9 @@ class Image
     /**
      * Returns the image string.
      *
-     * @return string
+     * @return string|GdImage
      */
-    public function getImageResource(): string
+    public function getImageResource(): string|GdImage
     {
         return $this->image;
     }

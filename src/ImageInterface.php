@@ -2,6 +2,8 @@
 
 namespace tbQuar;
 
+use GdImage;
+
 interface ImageInterface
 {
     /**
@@ -28,7 +30,7 @@ interface ImageInterface
     /**
      * Returns the image string.
      *
-     * @return string
+     * @return string|GdImage
      */
-    public function getImageResource(): string;
+    public function getImageResource(): string|GdImage;
 }
