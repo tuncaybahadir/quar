@@ -188,6 +188,56 @@ use tbQuar\Facades\Quar;
 
 ```
 
+## Example of Adding Logo on QR Code
+
+`Attention !!! : Due to a bug in the BaconQrCode package, you must set the margin value to 1 or higher during logo insertion. Otherwise the qr code is generated incorrectly.`
+
+Example 1:
+```php
+use tbQuar\Facades\Quar;
+    
+        $qr = Quar::format('png')
+            ->margin(1)
+            ->merge(public_path('php.png'), .2, true)
+            ->size(400)
+            ->generate('Quar package create qr code');
+            
+            return view('test', [
+                'qrCode' => base64_encode($qr),
+            ]);
+
+```
+Example 2:
+```php
+use tbQuar\Facades\Quar;
+    
+        $qr = Quar::format('png')
+            ->margin(1)
+            ->eye('rounded')
+            ->merge(public_path('php.png'), .3, true)
+            ->size(200)
+            ->gradient(100, 20, 5 , 7, 9, 12 , 'VERTICAL')
+            ->generate('Quar package create qr code');
+            
+            return view('test', [
+                'qrCode' => base64_encode($qr),
+            ]);
+
+```
+
+And use it in your blade template this way:
+
+```html
+<div>
+    <img src="data:image/png;base64,{{ $qrCode }}" />
+</div>
+```
+## Adding Logo on Qr Code Sample Code Result 1:
+![Example 10](docs/images/example-10.png)
+
+## Adding Logo on Qr Code Sample Code Result 2:
+![Example 11](docs/images/example-11.png)
+
 ## Authors
 
 - [Tuncay Bahadır](https://github.com/tuncaybahadir)
