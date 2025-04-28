@@ -2,6 +2,11 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.2.3 - 2025-04-28
+
+### What's Changed
+* Sample scripts and result screens for the merge operation have been added to the README file.
+
 ## 1.2.2 - 2025-04-28
 
 ### What's Changed
