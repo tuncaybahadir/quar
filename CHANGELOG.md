@@ -2,6 +2,12 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.2.4 - 2025-05-02
+
+### What's Changed
+* Examples for the body pattern have been added to the readme file and the file has been made more readable.
+* Updated composer.json file description field.
+
 ## 1.2.3 - 2025-04-28
 
 ### What's Changed
