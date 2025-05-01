@@ -1,6 +1,6 @@
 {
   "name": "tuncaybahadir/quar",
-  "description": "A simple qr code generation tool for your projects with Laravel 11, 12 versions, php 8.3 and 8.4",
+  "description": "A simple QR Code generation tool for your projects with Laravel 11, 12 versions, php 8.3 and 8.4",
   "keywords": [
     "quar",
     "qr",
