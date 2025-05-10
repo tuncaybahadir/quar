@@ -131,7 +131,7 @@ $qr = Quar::eye('square')
             ->size(161)
             ->generate('Quar package create qr code');
 ```
-## Qr Code Coloring Markers Response
+## Qr Code Coloring Markers Response 1
 ![Example 4](docs/images/example-4.png)
 
 ***
@@ -148,12 +148,12 @@ $qr = Quar::eye('square')
             ->size(161)
             ->generate('Quar package create qr code');
 ```
-## Qr Code Coloring Markers Response 2
+## Qr Code Hex Code With Coloring Markers Response 2
 ![Example 17](docs/images/example-17.png)
 
 ***
 
-## Qr Code Coloring Example
+## Qr Code Coloring Example 1
 
 ```php
 use tbQuar\Facades\Quar;
@@ -164,7 +164,7 @@ $qr = Quar::color(50, 168, 82)
             ->generate('Quar package create qr code');
 ```
 
-## Qr Code Coloring Response
+## Qr Code Coloring Response 1
 ![Example 5](docs/images/example-5.png)
 
 ***
@@ -185,7 +185,7 @@ $qr = Quar::color('#32a852')
 
 ***
 
-## Qr Code Background Hex Code with Coloring Markers
+## Example Of Coloring Qr Code Background With Hex Code 1
 
 ```php
 use tbQuar\Facades\Quar;
@@ -197,7 +197,7 @@ $qr = Quar::color('#710616')
             ->generate('Quar package create qr code');
 ```
 
-## Qr Code Background Hex Code with Coloring Markers Example
+## Example Of Coloring Qr Code Background With Hex Code 1
 ![Example 19](docs/images/example-19.png)
 
 ***
@@ -214,12 +214,12 @@ $qr = Quar::color(113, 6, 22)
             ->generate('Quar package create qr code');
 ```
 
-## Sample Result Of Coloring The Background Of Qr Code 2
+## Sample Result Of Coloring The Background Of Qr Code Response 2
 ![Example 20](docs/images/example-20.png)
 
 ***
 
-## Qr Code and Eye Coloring Example
+## Qr Code And Markers Coloring Example
  
 ```php
 use tbQuar\Facades\Quar;

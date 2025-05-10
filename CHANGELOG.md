@@ -2,6 +2,12 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.3.1 - 2025-05-10
+
+### What's Changed
+
+* README file has been updated.
+
 ## 1.3.0 - 2025-05-10
 
 ### What's Changed
