@@ -191,7 +191,7 @@ class Generate
     public function merge(string $filepath, float $percentage = .2, bool $absolute = false): self
     {
         if (function_exists('base_path') && ! $absolute) {
-            $filepath = base_path().$filepath;
+            $filepath = base_path($filepath);
         }
 
         $this->imageMerge = file_get_contents($filepath);
@@ -248,15 +248,24 @@ class Generate
     /**
      * Sets the foreground color of the QrCode.
      *
-     * @param int $red
-     * @param int $green
-     * @param int $blue
+     * @param int|string $redOrHex
+     * @param int|null $green
+     * @param int|null $blue
      * @param ?int $alpha
      * @return Generate
      */
-    public function color(int $red, int $green, int $blue, ?int $alpha = null): self
+    public function color(int|string $redOrHex, ?int $green = null, ?int $blue = null, ?int $alpha = null): self
     {
-        $this->color = $this->createColor($red, $green, $blue, $alpha);
+        if (is_string($redOrHex)) {
+            $hexToRgb = $this->hexToRgb($redOrHex);
+
+            return $this->color(...$hexToRgb);
+        } else {
+            if (is_null($green) || is_null($blue)) {
+                throw new InvalidArgumentException('You must provide a green and blue value.');
+            }
+        }
+        $this->color = $this->createColor($redOrHex, $green, $blue, $alpha);
 
         return $this;
     }
@@ -264,15 +273,25 @@ class Generate
     /**
      * Sets the background color of the QrCode.
      *
-     * @param int $red
-     * @param int $green
-     * @param int $blue
+     * @param int|string $redOrHex
+     * @param int|null $green
+     * @param int|null $blue
      * @param ?int $alpha
      * @return Generate
      */
-    public function backgroundColor(int $red, int $green, int $blue, ?int $alpha = null): self
+    public function backgroundColor(int|string $redOrHex, ?int $green = null, ?int $blue = null, ?int $alpha = null): self
     {
-        $this->backgroundColor = $this->createColor($red, $green, $blue, $alpha);
+        if (is_string($redOrHex)) {
+            $hexToRgb = $this->hexToRgb($redOrHex);
+
+            return $this->backgroundColor(...$hexToRgb);
+        } else {
+            if (is_null($green) || is_null($blue)) {
+                throw new InvalidArgumentException('You must provide a green and blue value.');
+            }
+        }
+
+        $this->backgroundColor = $this->createColor($redOrHex, $green, $blue, $alpha);
 
         return $this;
     }
@@ -301,6 +320,23 @@ class Generate
         );
 
         return $this;
+    }
+
+    /**
+     * Sets the eye color for the provided eye index by providing hex codes.
+     *
+     * @param int $eyeNumber
+     * @param string $innerHex
+     * @param string $outterHex
+     * @return Generate
+     */
+    public function eyeColorFromHex(int $eyeNumber, string $outterHex = '#000000', string $innerHex = '#000000'): self
+    {
+        if (! in_array($eyeNumber, [0, 1, 2])) {
+            throw new InvalidArgumentException("\$eyeNumber must be 0, 1, or 2.  {$eyeNumber} is not valid.");
+        }
+
+        return $this->eyeColor($eyeNumber, ...$this->hexToRgb($outterHex), ...$this->hexToRgb($innerHex));
     }
 
     /**
@@ -533,24 +569,6 @@ class Generate
     }
 
     /**
-     * Creates a RGB or Alpha channel color.
-     *
-     * @param int $red
-     * @param int $green
-     * @param int $blue
-     * @param int|null $alpha
-     * @return ColorInterface
-     */
-    public function createColor(int $red, int $green, int $blue, ?int $alpha = null): ColorInterface
-    {
-        if (is_null($alpha)) {
-            return new Rgb($red, $green, $blue);
-        }
-
-        return new Alpha($alpha, new Rgb($red, $green, $blue));
-    }
-
-    /**
      * Sets the compression quality
      *
      *
@@ -566,5 +584,34 @@ class Generate
         $this->compressionQuality = $quality;
 
         return $this;
+    }
+
+    /**
+     * Creates a RGB or Alpha channel color.
+     *
+     * @param int $red
+     * @param int $green
+     * @param int $blue
+     * @param int|null $alpha
+     * @return ColorInterface
+     */
+    private function createColor(int $red, int $green, int $blue, ?int $alpha = null): ColorInterface
+    {
+        if (is_null($alpha)) {
+            return new Rgb($red, $green, $blue);
+        }
+
+        return new Alpha($alpha, new Rgb($red, $green, $blue));
+    }
+
+    /**
+     * Converts a hex color to an array of rgb values.
+     *
+     * @param string $hex
+     * @return array
+     */
+    private function hexToRgb(string $hex): array
+    {
+        return (new HexToRgb($hex))->toRGBArray();
     }
 }
