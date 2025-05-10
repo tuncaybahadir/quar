@@ -2,6 +2,19 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.3.0 - 2025-05-10
+
+### What's Changed
+
+* Merge method base_path usage has been fixed.
+* For the use of hex colors, the hexToRgb method is included in the Generate class as private.
+* color, backgroundColor methods have been adapted to use hex color codes.
+* Added eyeColorFromHex method for using hex color codes in eye color paintings.
+* createColor method has been converted to private method.
+* hex color code usage and background coloring examples have been added.
+* laravel/pint package version updated to 1.22.1
+* README file has been updated.
+
 ## 1.2.4 - 2025-05-02
 
 ### What's Changed
