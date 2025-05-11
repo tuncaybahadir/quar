@@ -62,7 +62,7 @@ class Generate
      *
      * @var string|null
      */
-    protected ?string $errorCorrection = null;
+    protected ?ErrorCorrectionLevel $errorCorrection = null;
 
     /**
      * Holds the selected encoder.  Possible values are
