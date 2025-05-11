@@ -2,6 +2,12 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.3.2 - 2025-05-11
+
+### What's Changed
+
+* The incorrect type definition of $errorCorrection in the Generate class has been edited and phpdocs has been updated.
+
 ## 1.3.1 - 2025-05-10
 
 ### What's Changed
