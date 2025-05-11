@@ -60,7 +60,7 @@ class Generate
      * Q: 25% loss.
      * H: 30% loss.
      *
-     * @var string|null
+     * @var ErrorCorrectionLevel|null
      */
     protected ?ErrorCorrectionLevel $errorCorrection = null;
 
