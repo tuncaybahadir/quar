@@ -28,6 +28,7 @@ use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\Writer;
 use Illuminate\Support\HtmlString;
 use InvalidArgumentException;
+use tbQuar\CustomEyes\RingEye;
 use tbQuar\CustomEyes\RoundedSquareEye;
 
 class Generate
@@ -374,7 +375,7 @@ class Generate
      */
     public function eye(string $style): self
     {
-        if (! in_array($style, ['square', 'circle', 'rounded'])) {
+        if (! in_array($style, ['square', 'circle', 'rounded', 'ring'])) {
             throw new InvalidArgumentException("\$style must be square, rounded or circle. {$style} is not a valid eye style.");
         }
 
@@ -543,6 +544,10 @@ class Generate
 
         if ($this->eyeStyle === 'rounded') {
             return RoundedSquareEye::instance();
+        }
+
+        if ($this->eyeStyle === 'ring') {
+            return RingEye::instance();
         }
 
         return new ModuleEye($this->getModule());
