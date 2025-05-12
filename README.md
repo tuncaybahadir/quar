@@ -65,6 +65,7 @@ $qr = Quar::size(61)
 - `square`: Default Marker Type
 - `rounded`
 - `circle`
+- `ring`
 
 ```php
 use tbQuar\Facades\Quar;
@@ -73,7 +74,7 @@ $qr = Quar::eye('rounded')
             ->generate('Quar package create qr code');
 ```
 ## Qr Code Markers Response
-![Example 12](docs/images/example-12.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 3](docs/images/example-3.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 13](docs/images/example-13.png)
+![Example 12](docs/images/example-12.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 3](docs/images/example-3.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 13](docs/images/example-13.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 21](docs/images/example-21.png)
 
 ***
 
@@ -98,7 +99,7 @@ $qr = Quar::style('dot', 0.9)
 
 ## Example of Setting Qr Code Gradient Coloring
 
-## Available Gradient type
+## Available Gradient Type
 
 - `vertical`
 - `horizontal`

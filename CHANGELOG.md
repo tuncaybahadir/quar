@@ -2,6 +2,13 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.4.0 - 2025-05-13
+
+### What's Changed
+
+* Added New Marker Type Called Ring.
+* README file has been updated.
+
 ## 1.3.2 - 2025-05-11
 
 ### What's Changed
