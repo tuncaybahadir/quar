@@ -11,6 +11,10 @@
 ## Introduction
 Quar is a new package that includes compatibility for Laravel 11 and Php 8.3 and higher versions of the packages provided by [Bacon/BaconQrCode] (https://github.com/Bacon/BaconQrCode) and [simplesoftwareio/simple-qrcode] (https://github.com/SimpleSoftwareIO/simple-qrcode).
 
+***
+<a href="https://www.buymeacoffee.com/tuncaybahadir" target="_blank">![Example 17](docs/images/coffe.png)</a>
+***
+
 ## Requirements
 
 - PHP 8.3+
@@ -74,7 +78,8 @@ $qr = Quar::eye('rounded')
             ->generate('Quar package create qr code');
 ```
 ## Qr Code Markers Response
-![Example 12](docs/images/example-12.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 3](docs/images/example-3.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 13](docs/images/example-13.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 21](docs/images/example-21.png)
+![Example 12](docs/images/example-12.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 3](docs/images/example-3.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Example 13](docs/images/example-13.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 21](docs/images/example-21.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ***
 
@@ -221,7 +226,7 @@ $qr = Quar::color(113, 6, 22)
 ***
 
 ## Qr Code And Markers Coloring Example
- 
+
 ```php
 use tbQuar\Facades\Quar;
     
@@ -234,7 +239,7 @@ $qr = Quar::color(235, 12, 83)
             ->generate('Quar package create qr code');
 ```
 
-## Qr Code and Marker Coloring Response 
+## Qr Code and Marker Coloring Response
 ![Example 6](docs/images/example-6.png)
 
 ***
@@ -349,7 +354,3 @@ And use it in your blade template this way:
 ## Contributing
 
 Pull requests and issues are more than welcome.
-
-***
-
-<a href="https://www.buymeacoffee.com/tuncaybahadir" target="_blank">![Example 17](docs/images/coffe.png)</a>

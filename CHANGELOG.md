@@ -2,6 +2,13 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.4.1 - 2025-05-15
+
+### What's Changed
+
+* Fixed a bug where assigning a style value while creating a QR Code would change the marker design.
+* README file has been updated.
+
 ## 1.4.0 - 2025-05-13
 
 ### What's Changed
