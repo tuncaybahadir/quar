@@ -97,9 +97,9 @@ class Generate
      * The style to apply to the eye.
      * Possible values are circle, square and rounded.
      *
-     * @var string|null
+     * @var string
      */
-    protected ?string $eyeStyle = null;
+    protected string $eyeStyle = 'square';
 
     /**
      * The foreground color of the QrCode.
