@@ -2,6 +2,14 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.5.0 - 2025-05-24
+
+### What's Changed
+
+* Two body pattern designs were included in the project.
+* Body pattern images have been replaced with larger images.
+* README file has been updated.
+
 ## 1.4.1 - 2025-05-15
 
 ### What's Changed

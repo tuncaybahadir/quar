@@ -90,6 +90,10 @@ $qr = Quar::eye('rounded')
 - `square`: Default Pattern
 - `dot`
 - `round`
+- `star`
+- `vertigo`
+
+`Attention : The maximum smoothness value for square, dot and round designs is 0.9 and the maximum smoothness value for star and vertigo designs is 0.5.`
 
 ```php
 use tbQuar\Facades\Quar;
@@ -98,7 +102,9 @@ $qr = Quar::style('dot', 0.9)
             ->generate('Quar package create qr code');
 ```
 ## Qr Code Body Pattern Style Response
-![Example 14](docs/images/example-14.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 15](docs/images/example-15.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 16](docs/images/example-16.png)
+![Example 14](docs/images/example-14.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 15](docs/images/example-15.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Example 16](docs/images/example-16.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 22](docs/images/example-22.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Example 23](docs/images/example-23.png)
 
 ***
 
