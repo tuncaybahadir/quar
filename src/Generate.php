@@ -30,6 +30,8 @@ use Illuminate\Support\HtmlString;
 use InvalidArgumentException;
 use tbQuar\CustomEyes\RingEye;
 use tbQuar\CustomEyes\RoundedSquareEye;
+use tbQuar\CustomStyle\StarStyle;
+use tbQuar\CustomStyle\VertigoStyle;
 
 class Generate
 {
@@ -393,12 +395,18 @@ class Generate
      */
     public function style(string $style, float $size = 0.5): self
     {
-        if (! in_array($style, ['square', 'dot', 'round'])) {
+        if (! in_array($style, ['square', 'dot', 'round', 'star', 'vertigo'])) {
             throw new InvalidArgumentException("\$style must be square, dot, or round. {$style} is not a valid.");
         }
 
-        if ($size <= 0 || $size > 1) {
-            throw new InvalidArgumentException("\$size must be between 0 and 1.  {$size} is not valid.");
+        if ($style === 'star' || $style === 'vertigo') {
+            if ($size <= 0 || $size > 0.5) {
+                throw new InvalidArgumentException("\$size must be between 0 and 0,5.  {$size} is not valid.");
+            }
+        } else {
+            if ($size <= 0 || $size > 1) {
+                throw new InvalidArgumentException("\$size must be between 0 and 1.  {$size} is not valid.");
+            }
         }
 
         $this->style = $style;
@@ -522,6 +530,14 @@ class Generate
 
         if ($this->style === 'round') {
             return new RoundnessModule($this->styleSize);
+        }
+
+        if ($this->style === 'star') {
+            return new StarStyle($this->styleSize);
+        }
+
+        if ($this->style === 'vertigo') {
+            return new VertigoStyle($this->styleSize);
         }
 
         return SquareModule::instance();
