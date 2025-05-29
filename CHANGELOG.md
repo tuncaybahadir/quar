@@ -2,6 +2,14 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.5.1 - 2025-05-29
+
+### What's Changed
+
+* Working tests were performed with Laravel 10, Php 8.3 and Php 8.4 versions.
+* Some document images have been renamed.
+* README file has been updated.
+
 ## 1.5.0 - 2025-05-24
 
 ### What's Changed

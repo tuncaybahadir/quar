@@ -9,16 +9,16 @@
 </p>
 
 ## Introduction
-Quar is a new package that includes compatibility for Laravel 11 and Php 8.3 and higher versions of the packages provided by [Bacon/BaconQrCode] (https://github.com/Bacon/BaconQrCode) and [simplesoftwareio/simple-qrcode] (https://github.com/SimpleSoftwareIO/simple-qrcode).
+Quar for generating Qr Code with Laravel references the packages provided by [Bacon/BaconQrCode] (https://github.com/Bacon/BaconQrCode) and [simplesoftwareio/simple-qrcode] (https://github.com/SimpleSoftwareIO/simple-qrcode). The Quar package is a new qr code generation package with compatibility for Laravel 10 and Php 8.3 and higher.
 
 ***
 <a href="https://www.buymeacoffee.com/tuncaybahadir" target="_blank">![Example 17](docs/images/coffe.png)</a>
 ***
 
-## Requirements
+## Minimum Requirements
 
 - PHP 8.3+
-- Laravel 11+
+- Laravel 10+
 
 ## Installing
 
@@ -102,8 +102,8 @@ $qr = Quar::style('dot', 0.9)
             ->generate('Quar package create qr code');
 ```
 ## Qr Code Body Pattern Style Response
-![Example 14](docs/images/example-14.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 15](docs/images/example-15.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-![Example 16](docs/images/example-16.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 22](docs/images/example-22.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Example 14](docs/images/example-24.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 15](docs/images/example-25.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Example 16](docs/images/example-26.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Example 22](docs/images/example-22.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Example 23](docs/images/example-23.png)
 
 ***
