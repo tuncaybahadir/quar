@@ -2,6 +2,13 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.5.2 - 2025-06-03
+
+### What's Changed
+
+* In Generate.php, the value of the $encoding variable has been edited to be fetched from the Encoder class.
+* README file has been updated.
+
 ## 1.5.1 - 2025-05-29
 
 ### What's Changed

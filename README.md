@@ -3,13 +3,13 @@
 <p align="center">
     <a href="https://packagist.org/packages/tuncaybahadir/quar"><img alt="Latest Stable Version" src="https://img.shields.io/packagist/v/tuncaybahadir/quar.svg?logo=packagist&logoColor=f5f5f5"></a>&nbsp;
     <img alt="php" src="https://img.shields.io/badge/php-8.3%20--%208.4-brightgreen.svg?logo=php">&nbsp;
-    <img alt="Laravel" src="https://img.shields.io/badge/Laravel-11%20--%2012-blue.svg?logo=laravel">&nbsp;
+    <img alt="Laravel" src="https://img.shields.io/badge/Laravel-10%20--11%20--%2012-blue.svg?logo=laravel">&nbsp;
     <a href="https://packagist.org/packages/tuncaybahadir/quar"><img alt="Downloads" src="https://img.shields.io/packagist/dt/tuncaybahadir/quar.svg?logo=down"></a>&nbsp;
     <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg">
 </p>
 
 ## Introduction
-Quar for generating Qr Code with Laravel references the packages provided by [Bacon/BaconQrCode] (https://github.com/Bacon/BaconQrCode) and [simplesoftwareio/simple-qrcode] (https://github.com/SimpleSoftwareIO/simple-qrcode). The Quar package is a new qr code generation package with compatibility for Laravel 10 and Php 8.3 and higher.
+To generate Qr Code with Laravel, Quar references packages provided by [Bacon/BaconQrCode] (https://github.com/Bacon/BaconQrCode) and [simplesoftwareio/simple-qrcode] (https://github.com/SimpleSoftwareIO/simple-qrcode). The Quar package is a new qr code generation package with compatibility for Laravel 10, Laravel 11, Laravel 12 and Php 8.3, Php 8.4.
 
 ***
 <a href="https://www.buymeacoffee.com/tuncaybahadir" target="_blank">![Example 17](docs/images/coffe.png)</a>
