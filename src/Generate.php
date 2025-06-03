@@ -77,7 +77,7 @@ class Generate
      *
      * @var string
      */
-    protected string $encoding = 'UTF-8';
+    protected string $encoding = Encoder::DEFAULT_BYTE_MODE_ENCODING;
 
     /**
      * The style of the blocks within the QrCode.
