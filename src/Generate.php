@@ -27,6 +27,7 @@ use BaconQrCode\Renderer\RendererStyle\GradientType;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\Writer;
 use Illuminate\Support\HtmlString;
+use Illuminate\Support\Traits\Conditionable;
 use InvalidArgumentException;
 use tbQuar\CustomEyes\RingEye;
 use tbQuar\CustomEyes\RoundedSquareEye;
@@ -35,6 +36,8 @@ use tbQuar\CustomStyle\VertigoStyle;
 
 class Generate
 {
+    use Conditionable;
+
     /**
      * Holds the selected formatter.
      *
