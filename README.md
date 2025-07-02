@@ -351,6 +351,24 @@ And use it in your blade template this way:
 ## Adding Logo on Qr Code Sample Code Result 2:
 ![Example 11](docs/images/example-11.png)
 
+## Example of Adding Logo on QR Code with Laravel Conditionable Trait class
+
+Example :
+```php
+use tbQuar\Facades\Quar;
+
+        $qr = Quar::format('png')
+            ->margin(1)
+            ->when(($logo = config('app.company.logo')) && file_exists($logo))
+            ->merge($logo, .25, absolute: true)
+            ->size(400)
+            ->generate('Quar package create qr code', $path);
+
+            return view('test', [
+                'qrCode' => base64_encode($qr),
+            ]);
+```
+
 ## Authors
 
 - [Tuncay Bahadır](https://github.com/tuncaybahadir)

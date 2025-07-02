@@ -2,6 +2,13 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.5.3 - 2025-07-02
+
+### What's Changed
+
+* Conditionable trait belonging to Laravel was included in the Generate.php class.
+* README file has been updated.
+
 ## 1.5.2 - 2025-06-03
 
 ### What's Changed
