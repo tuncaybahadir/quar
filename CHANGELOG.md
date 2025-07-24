@@ -2,6 +2,12 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.5.4 - 2025-07-24
+
+### What's Changed
+
+* laravel/pint package version updated to 1.24
+
 ## 1.5.3 - 2025-07-02
 
 ### What's Changed
