@@ -28,7 +28,7 @@
     "ext-gd": "*"
   },
   "require-dev": {
-    "laravel/pint": "^1.22",
+    "laravel/pint": "^1.24",
     "roave/security-advisories": "dev-latest"
   },
   "suggest": {
