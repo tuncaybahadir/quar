@@ -372,16 +372,6 @@ use tbQuar\Facades\Quar;
 ## Adding Text Around a QR Code
 
 Example :
-```php
-use tbQuar\Facades\Quar;
-
-        $qr = Quar::size(300)
-            ->withText('Quar Code Package')
-            ->generate('Quar package create qr code');
-```
-Example Output :
-
-![Example 27](docs/images/example-27.png)
 
 ```php
 use tbQuar\Facades\Quar;
