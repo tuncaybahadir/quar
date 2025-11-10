@@ -369,6 +369,88 @@ use tbQuar\Facades\Quar;
             ]);
 ```
 
+## Adding Text Around a QR Code
+
+Example :
+```php
+use tbQuar\Facades\Quar;
+
+        $qr = Quar::size(300)
+            ->withText('Quar Code Package')
+            ->generate('Quar package create qr code');
+```
+Example Output :
+
+![Example 27](docs/images/example-27.png)
+
+```php
+use tbQuar\Facades\Quar;
+
+        $qr = Quar::size(300)
+            ->withText('Quar Code Package')
+            ->generate('Quar package create qr code');
+```
+Example Result :
+
+![Example 27](docs/images/example-27.png)
+
+## Customizing the Text
+
+Example :
+
+```php
+use tbQuar\Facades\Quar;
+
+        $qr = Quar::size(300)
+            ->withText('Quar Code Package')
+            ->configureText(function($text) {
+                $text->setTextColor('#54ac6e')
+                    ->setFontSize(12)
+                    ->setPosition('top-right')
+                    ->setPadding(25)
+                    ->setBackgroundColor('#151521')
+                    //->setFont('/path/to/font.ttf')
+                    ->setBackgroundOpacity(0.1);
+            })
+            ->generate('Quar package create qr code');
+```
+
+Example Result :
+
+![Example 28](docs/images/example-28.png)
+
+## Available Text Positions
+
+- `top`,
+- `bottom` : Default Position,
+- `left`,
+- `right`,
+- `top-left`,
+- `top-right`,
+- `bottom-left`,
+- `bottom-right`,
+
+
+Example :
+
+```php
+use tbQuar\Facades\Quar;
+
+        $qr = Quar::size(300)
+            ->withText('🇹🇷 Türkiye 🇹🇷')
+            ->configureText(function($text) {
+                $text->setTextColor('#ce2026')
+                    ->setFontSize(30)
+                    ->setPosition('top')
+                    ->setBackgroundOpacity(0.1);
+            })
+            ->generate('Quar package create qr code');
+```
+
+Example Result :
+
+![Example 29](docs/images/example-29.png)
+
 ## Authors
 
 - [Tuncay Bahadır](https://github.com/tuncaybahadir)

@@ -2,6 +2,15 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.6.0 - 2025-11-10
+
+### What's Changed
+
+* New methods have been added to the Generate.php class for writing text to QR codes, and checks for text operations have been implemented within the generate method.
+* The TextOverlay class has been prepared for writing text around the QR code.
+* laravel/pint package version updated to 1.25
+* README file has been updated.
+
 ## 1.5.4 - 2025-07-24
 
 ### What's Changed
