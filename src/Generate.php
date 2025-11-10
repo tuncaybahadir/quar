@@ -156,14 +156,20 @@ class Generate
     protected int $compressionQuality = 100;
 
     /**
-     * Generates the QrCode.
+     * Text overlay object
      *
+     * @var TextOverlay|null
+     */
+    protected ?TextOverlay $textOverlay = null;
+
+    /**
+     * Generates the QrCode.
      *
      * @param string $text
      * @param string|null $filename
-     * @return true|HtmlString|string
+     * @return bool|HtmlString|string
      */
-    public function generate(string $text, ?string $filename = null): true|HtmlString|string
+    public function generate(string $text, ?string $filename = null): bool|HtmlString|string
     {
         $qrCode = $this->getWriter($this->getRenderer())
             ->writeString($text, $this->encoding, $this->errorCorrection);
@@ -171,6 +177,10 @@ class Generate
         if ($this->imageMerge !== null && $this->format === 'png') {
             $merger = new ImageMerge(new Image($qrCode), new Image($this->imageMerge));
             $qrCode = $merger->merge($this->imagePercentage);
+        }
+
+        if ($this->textOverlay !== null) {
+            $qrCode = $this->applyTextOverlay($qrCode);
         }
 
         if ($filename) {
@@ -181,6 +191,62 @@ class Generate
 
         if (class_exists(HtmlString::class)) {
             return new HtmlString($qrCode);
+        }
+
+        return $qrCode;
+    }
+
+    /**
+     * Adds text to the QR code
+     *
+     * @param string $text Text
+     * @param string $position Position (top, bottom, left, right, top-left, top-right, bottom-left, bottom-right)
+     * @return Generate
+     */
+    public function withText(string $text, string $position = 'bottom'): self
+    {
+        $this->textOverlay = new TextOverlay($text, $position);
+
+        return $this;
+    }
+
+    /**
+     * Helper method for text overlay configuration
+     *
+     * @param callable $callback
+     * @return Generate
+     */
+    public function configureText(callable $callback): self
+    {
+        if ($this->textOverlay !== null) {
+            $callback($this->textOverlay);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Rotates the current text overlay object
+     *
+     * @return TextOverlay|null
+     */
+    public function getTextOverlay(): ?TextOverlay
+    {
+        return $this->textOverlay;
+    }
+
+    /**
+     * Apply text overlay
+     *
+     * @param string $qrCode
+     * @return string
+     */
+    protected function applyTextOverlay(string $qrCode): string
+    {
+        if ($this->format === 'svg') {
+            return $this->textOverlay->applyToSvg($qrCode, $this->pixels, $this->pixels);
+        } elseif ($this->format === 'png') {
+            return $this->textOverlay->applyToPng($qrCode);
         }
 
         return $qrCode;
