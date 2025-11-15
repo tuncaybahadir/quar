@@ -2,6 +2,13 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.6.2 - 2025-11-15
+
+### What's Changed
+
+* An error checking structure has been added for the file_get_contents method within the merge method of the Generate class.
+* README file has been updated.
+
 ## 1.6.1 - 2025-11-10
 
 ### What's Changed
