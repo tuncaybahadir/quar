@@ -26,6 +26,7 @@ use BaconQrCode\Renderer\RendererStyle\Gradient;
 use BaconQrCode\Renderer\RendererStyle\GradientType;
 use BaconQrCode\Renderer\RendererStyle\RendererStyle;
 use BaconQrCode\Writer;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Traits\Conditionable;
 use InvalidArgumentException;
@@ -266,8 +267,14 @@ class Generate
             $filepath = base_path($filepath);
         }
 
-        $this->imageMerge = file_get_contents($filepath);
-        $this->imagePercentage = $percentage;
+        $content = @file_get_contents($filepath);
+
+        if ($content !== false) {
+            $this->imageMerge = $content;
+            $this->imagePercentage = $percentage;
+        } else {
+            Log::warning('Image merge failed for: '.$filepath);
+        }
 
         return $this;
     }
