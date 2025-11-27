@@ -2,6 +2,14 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.7.0 - 2025-11-27
+
+### What's Changed
+
+* PHP 8.2 and 8.5 support has been added. The minimum PHP version has been updated to 8.2.
+* laravel/pint package version updated to 1.26
+* README file has been updated.
+
 ## 1.6.2 - 2025-11-15
 
 ### What's Changed
