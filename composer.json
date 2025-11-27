@@ -1,6 +1,6 @@
 {
   "name": "tuncaybahadir/quar",
-  "description": "A simple QR Code generation tool for your projects with Laravel 10, 11, 12 versions, php 8.3 and 8.4",
+  "description": "A simple QR Code generation tool for your projects with Laravel 10, 11, 12 versions, php 8.2, 8.3, 8.4 and 8.5",
   "keywords": [
     "quar",
     "qr",
@@ -11,8 +11,10 @@
     "laravel 11",
     "laravel 12",
     "php",
+    "php 8.2",
     "php 8.3",
-    "php 8.4"
+    "php 8.4",
+    "php 8.5"
   ],
   "homepage": "https://github.com/tuncaybahadir/quar",
   "license": "MIT",
@@ -23,12 +25,12 @@
     }
   ],
   "require": {
-    "php": ">=8.3",
+    "php": ">=8.2",
     "bacon/bacon-qr-code": "^3.0",
     "ext-gd": "*"
   },
   "require-dev": {
-    "laravel/pint": "^1.25",
+    "laravel/pint": "^1.26",
     "roave/security-advisories": "dev-latest"
   },
   "suggest": {
