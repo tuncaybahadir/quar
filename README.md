@@ -9,7 +9,7 @@
 </p>
 
 ## Introduction
-To generate Qr Code with Laravel, Quar references packages provided by [Bacon/BaconQrCode] (https://github.com/Bacon/BaconQrCode) and [simplesoftwareio/simple-qrcode] (https://github.com/SimpleSoftwareIO/simple-qrcode). The Quar package is a new qr code generation package with compatibility for Laravel 10, Laravel 11, Laravel 12 and Php 8.2, Php 8.3, Php 8.4, Php 8.5.
+To generate Qr Code with Laravel, Quar references packages provided by [Bacon/BaconQrCode](https://github.com/Bacon/BaconQrCode) and [simplesoftwareio/simple-qrcode](https://github.com/SimpleSoftwareIO/simple-qrcode). The Quar package is a new qr code generation package with compatibility for Laravel 10, Laravel 11, Laravel 12 and Php 8.2, Php 8.3, Php 8.4, Php 8.5.
 
 ***
 <a href="https://www.buymeacoffee.com/tuncaybahadir" target="_blank">![Example 17](docs/images/coffe.png)</a>
