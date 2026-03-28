@@ -2,12 +2,12 @@
 
 All notable changes to `quar` will be documented in this file
 
-## 1.7.2 - 2025-11-27
+## 1.7.3 - 2026-03-29
 
 ### What's Changed
 
 * Support for Laravel 13 has been confirmed.
-* laravel/pint package version updated to 1.26
+* laravel/pint package version updated to 1.29
 * README file has been updated.
 
 ## 1.7.0 - 2025-11-27
