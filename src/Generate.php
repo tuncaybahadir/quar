@@ -3,6 +3,7 @@
 namespace tbQuar;
 
 use BaconQrCode\Common\ErrorCorrectionLevel;
+use BaconQrCode\Common\Version;
 use BaconQrCode\Encoder\Encoder;
 use BaconQrCode\Renderer\Color\Alpha;
 use BaconQrCode\Renderer\Color\ColorInterface;
@@ -168,6 +169,15 @@ class Generate
     protected ?TextOverlay $textOverlay = null;
 
     /**
+     * Forces a specific QrCode version (1-40).
+     * When null, the version is selected automatically based on the
+     * content length and the error correction level.
+     *
+     * @var Version|null
+     */
+    protected ?Version $version = null;
+
+    /**
      * Generates the QrCode.
      *
      * @param string $text
@@ -180,7 +190,7 @@ class Generate
             $qrCode = $this->renderPng($text);
         } else {
             $qrCode = $this->getWriter($this->getRenderer())
-                ->writeString($text, $this->encoding, $this->errorCorrection);
+                ->writeString($text, $this->encoding, $this->errorCorrection, $this->version);
         }
 
         if ($this->imageMerge !== null && $this->format === 'png') {
@@ -311,6 +321,28 @@ class Generate
     public function size(int $pixels): self
     {
         $this->pixels = $pixels;
+
+        return $this;
+    }
+
+    /**
+     * Forces a specific QrCode version (1-40).
+     *
+     * By default the version is chosen automatically based on the content
+     * length and the error correction level. When set, the QrCode is forced
+     * to at least the given version; if the content does not fit, the
+     * underlying encoder throws a WriterException.
+     *
+     * @param int $version
+     * @return Generate
+     */
+    public function version(int $version): self
+    {
+        if ($version < 1 || $version > 40) {
+            throw new InvalidArgumentException("\$version must be between 1 and 40. {$version} is not valid.");
+        }
+
+        $this->version = Version::getVersionForNumber($version);
 
         return $this;
     }
@@ -624,7 +656,7 @@ class Generate
 
         $svg = $this->getWriter(
             new ImageRenderer($this->getRendererStyle(), new SvgImageBackEnd)
-        )->writeString($text, $this->encoding, $this->errorCorrection);
+        )->writeString($text, $this->encoding, $this->errorCorrection, $this->version);
 
         $imagick = new Imagick;
         $imagick->setBackgroundColor(new ImagickPixel('transparent'));
