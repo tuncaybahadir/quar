@@ -105,7 +105,7 @@ $qr = Quar::size(500)
 
 `Attention : The version must be between 1 and 40. If the content does not fit into the requested version, a WriterException is thrown. When version() is not used, the smallest fitting version is selected automatically, exactly as before.`
 
-## Qr Code Markers Response
+## QR Code Versions Response
 ![Example 30](docs/images/example-30.png)
 
 ![Example 31](docs/images/example-31.png)
