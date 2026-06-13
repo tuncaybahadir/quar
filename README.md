@@ -62,6 +62,60 @@ $qr = Quar::size(61)
 
 ***
 
+## Example of Setting Qr Code Version
+
+QR codes have 40 versions (1-40); a higher version provides a larger grid and therefore more data capacity. By default the version is selected automatically based on the content and the error correction level. You may force a specific version with the `version()` method.
+
+Any integer between 1 and 40 is accepted. For readability, `VERSION_1` through `VERSION_40` constants are also available on the `Quar` facade, so `version(13)` and `version(Quar::VERSION_13)` are equivalent.
+
+```php
+use tbQuar\Facades\Quar;
+    
+$qr = Quar::version(13)
+            ->generate('Quar package create qr code');
+
+// Equivalent, using the constant
+$qr = Quar::version(Quar::VERSION_13)
+            ->generate('Quar package create qr code');
+
+$qr = Quar::size(300)
+            ->eye('ring')
+            ->style('round', 0.9)
+            ->version(Quar::VERSION_13)
+            ->margin(2)
+            ->gradient(20, 192, 241 , 164, 29, 52 , 'vertical')
+            ->generate('Quar package create qr code');
+
+$qr = Quar::size(300)
+            ->eye('square')
+            ->eyeColorFromHex('0', '#710616', '#710616')
+            ->eyeColorFromHex('1', '#7ab9e7', '#7ab9e7')
+            ->eyeColorFromHex('2', '#fcb811', '#fcb811')
+            ->style('round', 0.9)
+            ->version(Quar::VERSION_25)
+            ->margin(2)
+            ->gradient(20, 192, 241 , 164, 29, 52 , 'vertical')
+            ->generate('Quar package create qr code');
+
+$qr = Quar::size(500)
+            ->margin(2)
+            ->version(Quar::VERSION_40)
+            ->generate('Version 40 (177×177). Content: "Version 40 QR Code can contain up to 1852 chars ..." (and followed by four paragraphs of ASCII text describing QR codes). The text refers to a QR Code with a "Level H" error correction. Other levels provide higher capacity.');
+```
+
+`Attention : The version must be between 1 and 40. If the content does not fit into the requested version, a WriterException is thrown. When version() is not used, the smallest fitting version is selected automatically, exactly as before.`
+
+## Qr Code Markers Response
+![Example 30](docs/images/example-30.png)
+
+![Example 31](docs/images/example-31.png)
+
+![Example 32](docs/images/example-32.png)
+
+![Example 33](docs/images/example-33.png)
+
+***
+
 ## Example of Setting Qr Code Detection Markers
 
 ## Available Markers Type

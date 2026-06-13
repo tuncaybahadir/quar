@@ -2,6 +2,14 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.8.0 - 2026-06-13
+
+### What's Changed
+
+* A version() method has been added to the Generate class, allowing a specific QR code version (1-40) to be forced. When it is not used, the version is still selected automatically as before.
+* VERSION_1 through VERSION_40 constants have been added to the Quar facade for readable version selection.
+* README file has been updated.
+
 ## 1.7.4 - 2026-06-13
 
 ### What's Changed
