@@ -2,6 +2,13 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.7.4 - 2026-06-13
+
+### What's Changed
+
+* PNG QR codes are now rendered as SVG first and then rasterized with Imagick, fixing the "non-conforming drawing primitive definition `push'" error thrown by ImageMagick 7.x when generating PNGs with gradients (issue #8).
+* Gradient support for PNG generation has been preserved instead of falling back to the GD renderer.
+
 ## 1.7.3 - 2026-03-29
 
 ### What's Changed

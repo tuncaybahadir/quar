@@ -29,7 +29,11 @@ use BaconQrCode\Writer;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Traits\Conditionable;
+use Imagick;
+use ImagickException;
+use ImagickPixel;
 use InvalidArgumentException;
+use RuntimeException;
 use tbQuar\CustomEyes\RingEye;
 use tbQuar\CustomEyes\RoundedSquareEye;
 use tbQuar\CustomStyle\StarStyle;
@@ -172,8 +176,12 @@ class Generate
      */
     public function generate(string $text, ?string $filename = null): bool|HtmlString|string
     {
-        $qrCode = $this->getWriter($this->getRenderer())
-            ->writeString($text, $this->encoding, $this->errorCorrection);
+        if ($this->format === 'png') {
+            $qrCode = $this->renderPng($text);
+        } else {
+            $qrCode = $this->getWriter($this->getRenderer())
+                ->writeString($text, $this->encoding, $this->errorCorrection);
+        }
 
         if ($this->imageMerge !== null && $this->format === 'png') {
             $merger = new ImageMerge(new Image($qrCode), new Image($this->imageMerge));
@@ -591,6 +599,44 @@ class Generate
         }
 
         return new SvgImageBackEnd;
+    }
+
+    /**
+     * Renders the QrCode as a PNG.
+     *
+     * The QrCode is first rendered as SVG and then rasterized with Imagick.
+     * This bypasses bacon-qr-code's ImagickImageBackEnd, which builds the
+     * image from pattern/`push` based MVG drawing primitives that newer
+     * ImageMagick (7.x) rejects with "non-conforming drawing primitive
+     * definition `push'", breaking gradient PNG generation. SVG supports
+     * gradients natively, so this keeps gradient support intact.
+     *
+     * @param string $text
+     * @return string
+     *
+     * @throws RuntimeException|ImagickException
+     */
+    protected function renderPng(string $text): string
+    {
+        if (! class_exists(Imagick::class)) {
+            throw new RuntimeException('The imagick extension is required to generate PNG QrCodes.');
+        }
+
+        $svg = $this->getWriter(
+            new ImageRenderer($this->getRendererStyle(), new SvgImageBackEnd)
+        )->writeString($text, $this->encoding, $this->errorCorrection);
+
+        $imagick = new Imagick;
+        $imagick->setBackgroundColor(new ImagickPixel('transparent'));
+        $imagick->readImageBlob($svg);
+        $imagick->setImageFormat('png');
+        $imagick->setImageCompressionQuality($this->compressionQuality);
+
+        $png = $imagick->getImageBlob();
+
+        $imagick->clear();
+
+        return $png;
     }
 
     /**
