@@ -5,6 +5,8 @@ namespace tbQuar;
 use BaconQrCode\Common\ErrorCorrectionLevel;
 use BaconQrCode\Common\Version;
 use BaconQrCode\Encoder\Encoder;
+use BaconQrCode\Encoder\QrCode;
+use BaconQrCode\Exception\WriterException;
 use BaconQrCode\Renderer\Color\Alpha;
 use BaconQrCode\Renderer\Color\ColorInterface;
 use BaconQrCode\Renderer\Color\Rgb;
@@ -348,6 +350,41 @@ class Generate
     }
 
     /**
+     * Returns the QrCode version (1-40) that will be generated for the given text.
+     *
+     * The version is calculated with the same encoding, error correction
+     * level and forced version that generate() uses. When version() is not
+     * used, the smallest version that fits the content is returned.
+     *
+     * @param string $text
+     * @return int
+     *
+     * @throws WriterException
+     */
+    public function getVersion(string $text): int
+    {
+        return $this->encode($text)->getVersion()->getVersionNumber();
+    }
+
+    /**
+     * Returns the number of modules per side of the QrCode, including the margin.
+     *
+     * Each version adds 4 modules per side (version 1 is 21x21, version 2 is
+     * 25x25 and so on). Using a size() that is a multiple of this value keeps
+     * every module on whole pixels, so the QrCode is displayed crisp instead
+     * of blurry.
+     *
+     * @param string $text
+     * @return int
+     *
+     * @throws WriterException
+     */
+    public function getModuleCount(string $text): int
+    {
+        return $this->encode($text)->getMatrix()->getWidth() + ($this->margin * 2);
+    }
+
+    /**
      * Sets the format of the QrCode.
      *
      * @param string $format
@@ -669,6 +706,23 @@ class Generate
         $imagick->clear();
 
         return $png;
+    }
+
+    /**
+     * Encodes the text into a QrCode without rendering it.
+     *
+     * @param string $text
+     * @return QrCode
+     *
+     * @throws WriterException
+     */
+    protected function encode(string $text): QrCode
+    {
+        if (strlen($text) === 0) {
+            throw new InvalidArgumentException('$text must not be empty.');
+        }
+
+        return Encoder::encode($text, $this->errorCorrection ?? ErrorCorrectionLevel::L(), $this->encoding, $this->version);
     }
 
     /**
