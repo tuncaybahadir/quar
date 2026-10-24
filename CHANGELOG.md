@@ -8,6 +8,7 @@ All notable changes to `quar` will be documented in this file
 
 * A getVersion() method has been added to the Generate class, returning the QR code version (1-40) that will be generated for a given text, without rendering it (issue #6).
 * A getModuleCount() method has been added to the Generate class, returning the number of modules per side (including the margin), so the QR code can be sized to an exact multiple and displayed crisp instead of blurry.
+* laravel/pint package version updated to 1.30
 * README file has been updated.
 
 ## 1.8.1 - 2026-06-13
