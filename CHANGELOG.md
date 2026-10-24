@@ -2,6 +2,14 @@
 
 All notable changes to `quar` will be documented in this file
 
+## 1.9.0 - 2026-10-24
+
+### What's Changed
+
+* A getVersion() method has been added to the Generate class, returning the QR code version (1-40) that will be generated for a given text, without rendering it (issue #6).
+* A getModuleCount() method has been added to the Generate class, returning the number of modules per side (including the margin), so the QR code can be sized to an exact multiple and displayed crisp instead of blurry.
+* README file has been updated.
+
 ## 1.8.1 - 2026-06-13
 
 ### What's Changed

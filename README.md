@@ -116,6 +116,30 @@ $qr = Quar::size(500)
 
 ***
 
+## Example of Detecting Qr Code Version
+
+You may find out which version will be generated for a given text before rendering it with the `getVersion()` method. The version is calculated with the same encoding, error correction level and forced version that `generate()` uses, so when `version()` is not used the smallest fitting version is returned.
+
+The `getModuleCount()` method returns the number of modules per side, including the margin (version 1 is 21x21, version 2 is 25x25 and so on). Using a size that is a multiple of this value keeps every module on whole pixels, so the QR code is displayed crisp instead of blurry.
+
+```php
+use tbQuar\Facades\Quar;
+
+$version = Quar::getVersion('https://github.com/tuncaybahadir/quar');
+
+$modules = Quar::getModuleCount('https://github.com/tuncaybahadir/quar');
+
+$qr = Quar::margin(2)
+            ->errorCorrection('H');
+
+$qr = $qr->size($qr->getModuleCount('https://github.com/tuncaybahadir/quar') * 8)
+            ->generate('https://github.com/tuncaybahadir/quar');
+```
+
+`Attention : getVersion() and getModuleCount() must be called after margin(), errorCorrection(), encoding() and version(), because these settings affect the result.`
+
+***
+
 ## Example of Setting Qr Code Detection Markers
 
 ## Available Markers Type
