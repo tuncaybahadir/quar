@@ -138,6 +138,19 @@ $qr = $qr->size($qr->getModuleCount('https://github.com/tuncaybahadir/quar') * 8
 
 `Attention : getVersion() and getModuleCount() must be called after margin(), errorCorrection(), encoding() and version(), because these settings affect the result.`
 
+### Sizing by Pixels per Module
+
+`pixelsPerModule()` is an alternative to `size()`. The final size is calculated when `generate()` is called (`getModuleCount() * pixelsPerModule`), so the QR code is always crisp and the order of `margin()`, `errorCorrection()`, `encoding()` and `version()` does not matter. Calling `size()` after it overrides it.
+
+```php
+use tbQuar\Facades\Quar;
+
+$qr = Quar::margin(2)
+            ->errorCorrection('H')
+            ->pixelsPerModule(8)
+            ->generate('https://github.com/tuncaybahadir/quar');
+```
+
 ***
 
 ## Example of Setting Qr Code Detection Markers

@@ -61,6 +61,14 @@ class Generate
     protected int $pixels = 100;
 
     /**
+     * Holds the number of pixels per module. When set, the size of the
+     * QrCode is calculated at generation time and overrides size().
+     *
+     * @var int|null
+     */
+    protected ?int $pixelsPerModule = null;
+
+    /**
      * Holds the margin size of the QrCode.
      *
      * @var int
@@ -188,6 +196,10 @@ class Generate
      */
     public function generate(string $text, ?string $filename = null): bool|HtmlString|string
     {
+        if ($this->pixelsPerModule !== null) {
+            $this->pixels = $this->getModuleCount($text) * $this->pixelsPerModule;
+        }
+
         if ($this->format === 'png') {
             $qrCode = $this->renderPng($text);
         } else {
@@ -323,6 +335,31 @@ class Generate
     public function size(int $pixels): self
     {
         $this->pixels = $pixels;
+        $this->pixelsPerModule = null;
+
+        return $this;
+    }
+
+    /**
+     * Sets the size of the QrCode as a whole number of pixels per module,
+     * as an alternative to size().
+     *
+     * The final size is calculated when generate() is called, from the
+     * module count of the text (see getModuleCount()), so every module is
+     * rendered on whole pixels and the QrCode is displayed crisp instead of
+     * blurry. The order of the margin(), errorCorrection(), encoding() and
+     * version() calls does not matter. Calling size() afterwards overrides it.
+     *
+     * @param int $pixelsPerModule
+     * @return Generate
+     */
+    public function pixelsPerModule(int $pixelsPerModule): self
+    {
+        if ($pixelsPerModule < 1) {
+            throw new InvalidArgumentException('$pixelsPerModule must be at least 1.');
+        }
+
+        $this->pixelsPerModule = $pixelsPerModule;
 
         return $this;
     }
